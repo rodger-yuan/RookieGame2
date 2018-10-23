@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Rookie Game</title> 
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Abel', sans-serif;
+            }
+            h2 {
+                font-size: 40px;
+                margin-top: 20px;
+                color: black;
+            }
+            h3 {
+                font-size: 20px;
+                margin-top: 20px;
+                width: 960px;
+                color: black;
+            }
+            .title {
+                margin: auto;
+                width: 960px;
+                display: flex;
+                justify-content: space-between;
+            }
+            .table {
+                margin: auto;
+                width: 960px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            #table_score {
+                width: 40%;
+            }
+
+            #rt, #jt {
+                font-size: 18px;
+            }
+
+            table {
+                border-collapse: collapse;
+                table-layout: fixed;
+                width: 100%;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            th {
+                font-size: 18px;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body> 
+        <div class="title">
+            <h2>Rookie Game</h2>
+            <h2><small>by <a href="https://github.com/rodger-yuan">rodger yuan</a> </small></h2>
+        </div>
+        <hr>
+        <div class="title">
+            <h3> Score </h3>
+        </div>
+        <div class="table">
+            <table id = "table_score">
+              <tr>
+                <th width = "50%">Name</th>
+                <th>Win</th>
+                <th>Loss</th>
+                <th>Tie</th>
+              </tr>
+              <tr id="js"></tr>
+              <tr id="rs"></tr>
+            </table>
+        </div>
+        <div class="title">
+            <h3> Totals </h3>
+        </div>
+        <div class="table">
+            <table>
+              <tr>
+                <th width = "20%">Name</th>
+                <th>GP</th>
+                <th>FG</th>
+                <th>FGA</th>
+                <th>FG%</th>
+                <th>FT</th>
+                <th>FTA</th>
+                <th>FT%</th>                
+                <th>PTS</th>
+                <th>REB</th>
+                <th>AST</th>
+                <th>3P</th>
+                <th>STL</th>
+                <th>BLK</th>
+                <th>TOS</th>
+              </tr>
+              <tr id="jtt"></tr>
+              <tr id="rtt"></tr>
+            </table>
+        </div>
+        <div>
+            <div class="title">
+                <h3> Jimmy </h3>
+            </div>
+            <div class="table">
+                <table>
+                  <tr>
+                    <th width = "20%">Name</th>
+                    <th>GP</th>
+                    <th>FG</th>
+                    <th>FGA</th>
+                    <th>FG%</th>
+                    <th>FT</th>
+                    <th>FTA</th>
+                    <th>FT%</th>                
+                    <th>PTS</th>
+                    <th>REB</th>
+                    <th>AST</th>
+                    <th>3P</th>
+                    <th>STL</th>
+                    <th>BLK</th>
+                    <th>TOS</th>
+                  </tr>
+                  <tr id="Luka Doncic"></tr>
+                  <tr id="Deandre Ayton"></tr>
+                  <tr id="Kevin Knox"></tr>
+                  <tr id="Jaren Jackson Jr."></tr>
+                  <tr id="Miles Bridges"></tr>
+                  <tr id="jt"></tr>
+                </table>
+            </div>
+            <div class="title">
+                <h3> Rodger </h3>
+            </div>
+            <div class="table">
+                <table>
+                  <tr>
+                    <th width = "20%">Name</th>
+                    <th>GP</th>
+                    <th>FG</th>
+                    <th>FGA</th>
+                    <th>FG%</th>
+                    <th>FT</th>
+                    <th>FTA</th>
+                    <th>FT%</th>                
+                    <th>PTS</th>
+                    <th>REB</th>
+                    <th>AST</th>
+                    <th>3P</th>
+                    <th>STL</th>
+                    <th>BLK</th>
+                    <th>TOS</th>
+                  </tr>
+                  <tr id="Trae Young"></tr>
+                  <tr id="Collin Sexton"></tr>
+                  <tr id="Marvin Bagley III"></tr>
+                  <tr id="Wendell Carter Jr."></tr>
+                  <tr id="Shai Gilgeous-Alexander"></tr>
+                  <tr id="rt"></tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

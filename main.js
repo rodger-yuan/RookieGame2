@@ -1,78 +1,79 @@
 
 $( document ).ready(function() {
-	var url = "https://stats.nba.com/stats/leaguedashplayerstats?College=&Conference=&Country=&DateFrom=&DateTo=&Division=&DraftPick=&DraftYear=&GameScope=&GameSegment=&Height=&LastNGames=0&LeagueID=00&Location=&MeasureType=Base&Month=0&OpponentTeamID=0&Outcome=&PORound=0&PaceAdjust=N&PerMode=Totals&Period=0&PlayerExperience=&PlayerPosition=&PlusMinus=N&Rank=N&Season=2018-19&SeasonSegment=&SeasonType=Regular+Season&ShotClockRange=&StarterBench=&TeamID=0&VsConference=&VsDivision=&Weight=&callback=?"
-	var rodger_players = ["Trae Young", "Collin Sexton", "Marvin Bagley III", "Wendell Carter Jr.", "Shai Gilgeous-Alexander"]
-	var jimmy_players = ["Luka Doncic", "Deandre Ayton", "Kevin Knox", "Jaren Jackson Jr.", "Miles Bridges"]
+	var url = "https://stats.nba.com/stats/leagueLeaders?LeagueID=00&callback=?&PerMode=Totals&Scope=Rookies&Season=2019-20&SeasonType=Regular+Season&StatCategory=PTS"
+	var rodger_players = ["RJ Barrett", "Zion Williamson", "Rui Hachimura", "De'Andre Hunter", "Tyler Herro"]
+	var jimmy_players = ["Ja Morant", "Darius Garland", "Coby White", "Brandon Clarke", "Jarrett Culver"]
 
 	$.getJSON(url,  // url
 	    function (data) {  // success callback
-	        rowSet = data.resultSets[0].rowSet;
-	        console.log(data.resultSets[0]);
+	    	console.log(data)
+	        rowSet = data.resultSet.rowSet;
+	        console.log(rowSet);
 	        rodger_total = new Array(15).fill(0);
 	        rodger_total[0] = "Rodger Totals"
 	        jimmy_total = new Array(15).fill(0);
 	        jimmy_total[0] = "Jimmy Totals"
 	        jimmy_score = new Array(3).fill(0);
 			for (var i = 0; i < rowSet.length; i++) {
-				if (rodger_players.indexOf(rowSet[i][1]) > -1) {
-					row = document.getElementById(rowSet[i][1]); 
-					row.insertCell(0).innerHTML = rowSet[i][1]; //name
-					row.insertCell(1).innerHTML = rowSet[i][5]; //GP
-					row.insertCell(2).innerHTML = rowSet[i][10]; //FG
-					row.insertCell(3).innerHTML = rowSet[i][11]; //FGA
-					row.insertCell(4).innerHTML = Number(rowSet[i][10]*1.0/rowSet[i][11]).toFixed(3); //FG%
-					row.insertCell(5).innerHTML = rowSet[i][16]; //FT
-					row.insertCell(6).innerHTML = rowSet[i][17]; //FTA
-					row.insertCell(7).innerHTML = Number(rowSet[i][16]*1.0/rowSet[i][17]).toFixed(3); //FT%
-					row.insertCell(8).innerHTML = rowSet[i][29]; //PTS
-					row.insertCell(9).innerHTML = rowSet[i][21]; //REB
-					row.insertCell(10).innerHTML = rowSet[i][22]; //AST
-					row.insertCell(11).innerHTML = rowSet[i][13]; //3p
-					row.insertCell(12).innerHTML = rowSet[i][24]; //STL
-					row.insertCell(13).innerHTML = rowSet[i][25]; //BLK
-					row.insertCell(14).innerHTML = rowSet[i][23]; //TO
-					rodger_total[1] += rowSet[i][5]; //GP
-					rodger_total[2] += rowSet[i][10]; //FG
-					rodger_total[3] += rowSet[i][11];
-					rodger_total[5] += rowSet[i][16];
-					rodger_total[6] += rowSet[i][17];
-					rodger_total[8] += rowSet[i][29];
-					rodger_total[9] += rowSet[i][21];
-					rodger_total[10] += rowSet[i][22];
-					rodger_total[11] += rowSet[i][13];
-					rodger_total[12] += rowSet[i][24];
-					rodger_total[13] += rowSet[i][25];
-					rodger_total[14] += rowSet[i][23];
+				if (rodger_players.indexOf(rowSet[i][2]) > -1) {
+					row = document.getElementById(rowSet[i][2]); 
+					row.insertCell(0).innerHTML = rowSet[i][2]; //name
+					row.insertCell(1).innerHTML = rowSet[i][4]; //GP
+					row.insertCell(2).innerHTML = rowSet[i][6]; //FG
+					row.insertCell(3).innerHTML = rowSet[i][7]; //FGA
+					row.insertCell(4).innerHTML = Number(rowSet[i][6]*1.0/rowSet[i][7]).toFixed(3); //FG%
+					row.insertCell(5).innerHTML = rowSet[i][12]; //FT
+					row.insertCell(6).innerHTML = rowSet[i][13]; //FTA
+					row.insertCell(7).innerHTML = Number(rowSet[i][12]*1.0/rowSet[i][13]).toFixed(3); //FT%
+					row.insertCell(8).innerHTML = rowSet[i][23]; //PTS
+					row.insertCell(9).innerHTML = rowSet[i][17]; //REB
+					row.insertCell(10).innerHTML = rowSet[i][18]; //AST
+					row.insertCell(11).innerHTML = rowSet[i][9].toFixed(0); //3p
+					row.insertCell(12).innerHTML = rowSet[i][19]; //STL
+					row.insertCell(13).innerHTML = rowSet[i][20]; //BLK
+					row.insertCell(14).innerHTML = rowSet[i][21]; //TO
+					rodger_total[1] += rowSet[i][4]; //GP
+					rodger_total[2] += rowSet[i][6]; //FG
+					rodger_total[3] += rowSet[i][7];
+					rodger_total[5] += rowSet[i][12];
+					rodger_total[6] += rowSet[i][13];
+					rodger_total[8] += rowSet[i][23];
+					rodger_total[9] += rowSet[i][17];
+					rodger_total[10] += rowSet[i][18];
+					rodger_total[11] += rowSet[i][9];
+					rodger_total[12] += rowSet[i][19];
+					rodger_total[13] += rowSet[i][20];
+					rodger_total[14] += rowSet[i][21];
 				}
-				if (jimmy_players.indexOf(rowSet[i][1]) > -1) {
-					row = document.getElementById(rowSet[i][1]); 
-					row.insertCell(0).innerHTML = rowSet[i][1]; //name
-					row.insertCell(1).innerHTML = rowSet[i][5]; //GP
-					row.insertCell(2).innerHTML = rowSet[i][10]; //FG
-					row.insertCell(3).innerHTML = rowSet[i][11]; //FGA
-					row.insertCell(4).innerHTML = Number(rowSet[i][10]*1.0/rowSet[i][11]).toFixed(3); //FG%
-					row.insertCell(5).innerHTML = rowSet[i][16]; //FT
-					row.insertCell(6).innerHTML = rowSet[i][17]; //FTA
-					row.insertCell(7).innerHTML = Number(rowSet[i][16]*1.0/rowSet[i][17]).toFixed(3); //FT%
-					row.insertCell(8).innerHTML = rowSet[i][29]; //PTS
-					row.insertCell(9).innerHTML = rowSet[i][21]; //REB
-					row.insertCell(10).innerHTML = rowSet[i][22]; //AST
-					row.insertCell(11).innerHTML = rowSet[i][13]; //3p
-					row.insertCell(12).innerHTML = rowSet[i][24]; //STL
-					row.insertCell(13).innerHTML = rowSet[i][25]; //BLK
-					row.insertCell(14).innerHTML = rowSet[i][23]; //TO
-					jimmy_total[1] += rowSet[i][5]; //GP
-					jimmy_total[2] += rowSet[i][10]; //FG
-					jimmy_total[3] += rowSet[i][11];
-					jimmy_total[5] += rowSet[i][16];
-					jimmy_total[6] += rowSet[i][17];
-					jimmy_total[8] += rowSet[i][29];
-					jimmy_total[9] += rowSet[i][21];
-					jimmy_total[10] += rowSet[i][22];
-					jimmy_total[11] += rowSet[i][13];
-					jimmy_total[12] += rowSet[i][24];
-					jimmy_total[13] += rowSet[i][25];
-					jimmy_total[14] += rowSet[i][23];
+				if (jimmy_players.indexOf(rowSet[i][2]) > -1) {
+					row = document.getElementById(rowSet[i][2]); 
+					row.insertCell(0).innerHTML = rowSet[i][2]; //name
+					row.insertCell(1).innerHTML = rowSet[i][4]; //GP
+					row.insertCell(2).innerHTML = rowSet[i][6]; //FG
+					row.insertCell(3).innerHTML = rowSet[i][7]; //FGA
+					row.insertCell(4).innerHTML = Number(rowSet[i][6]*1.0/rowSet[i][7]).toFixed(3); //FG%
+					row.insertCell(5).innerHTML = rowSet[i][12]; //FT
+					row.insertCell(6).innerHTML = rowSet[i][13]; //FTA
+					row.insertCell(7).innerHTML = Number(rowSet[i][12]*1.0/rowSet[i][13]).toFixed(3); //FT%
+					row.insertCell(8).innerHTML = rowSet[i][23]; //PTS
+					row.insertCell(9).innerHTML = rowSet[i][17]; //REB
+					row.insertCell(10).innerHTML = rowSet[i][18]; //AST
+					row.insertCell(11).innerHTML = rowSet[i][9].toFixed(0); //3p
+					row.insertCell(12).innerHTML = rowSet[i][19]; //STL
+					row.insertCell(13).innerHTML = rowSet[i][20]; //BLK
+					row.insertCell(14).innerHTML = rowSet[i][21]; //TO
+					jimmy_total[1] += rowSet[i][4]; //GP
+					jimmy_total[2] += rowSet[i][6]; //FG
+					jimmy_total[3] += rowSet[i][7];
+					jimmy_total[5] += rowSet[i][12];
+					jimmy_total[6] += rowSet[i][13];
+					jimmy_total[8] += rowSet[i][23];
+					jimmy_total[9] += rowSet[i][17];
+					jimmy_total[10] += rowSet[i][18];
+					jimmy_total[11] += rowSet[i][9];
+					jimmy_total[12] += rowSet[i][19];
+					jimmy_total[13] += rowSet[i][20];
+					jimmy_total[14] += rowSet[i][21];
 				}
 			}
 			rodger_total[4] = Number(rodger_total[2]*1.0/rodger_total[3]).toFixed(3);
